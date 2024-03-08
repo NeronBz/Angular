@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <h1 class="text-center">Titulo: {{ title }}</h1>
+
+      <form class="mb-3">
+        <div class="form-group">
+          <label for="numero1">Número 1</label>
+          <input
+            type="number"
+            class="form-control"
+            id="numero1"
+            name="numero1"
+            [(ngModel)]="numero1"
+          />
+        </div>
+      </form>
+
+      <form class="mb-3">
+        <div class="form-group">
+          <label for="numero2">Número 2</label>
+          <input
+            type="number"
+            class="form-control"
+            id="numero2"
+            name="numero2"
+            [(ngModel)]="numero2"
+          />
+        </div>
+      </form>
+
+      <div class="text-center">
+        <button class="btn btn-primary mr-2" type="button" (click)="sumar()">
+          Sumar
+        </button>
+        <button class="btn btn-primary mr-2" type="button" (click)="restar()">
+          Restar
+        </button>
+        <button
+          class="btn btn-primary mr-2"
+          type="button"
+          (click)="multiplicar()"
+        >
+          Multiplicar
+        </button>
+        <button class="btn btn-primary" type="button" (click)="dividir()">
+          Dividir
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mt-4">
+    <div class="col-8">
+      <h2 class="text-center">Resultado: {{ resultado }}</h2>
+    </div>
+  </div>
+</div>
