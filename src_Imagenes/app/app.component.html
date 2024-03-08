@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-auto">
+      <h1>Galería</h1>
+      <img [src]="imagen" [width]="ancho" />
+    </div>
+    <div>
+      <button
+        class="btn btn-info btn-md m-2"
+        [disabled]="indiceImagenSeleccionada < 1"
+        (click)="anterior()"
+      >
+        Anterior
+      </button>
+      <button class="btn btn-info btn-md m-2" (click)="siguiente()">
+        Siguiente
+      </button>
+      <button class="btn btn-info btn-md m-2" (click)="aumentar()">
+        Aumentar
+      </button>
+      <button class="btn btn-info btn-md m-2" (click)="disminuir()">
+        Disminuir
+      </button>
+      <button class="btn btn-info btn-md m-2" (click)="play()">Play</button>
+    </div>
+  </div>
+</div>
