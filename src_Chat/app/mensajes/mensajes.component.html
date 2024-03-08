@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+        <div class="col-auto text-center">
+          <form #u="ngForm">
+            <h1>CHAT_DAW_2</h1>
+            <p>Usuario</p>
+            <input
+              type="text"
+              placeholder="Usuario"
+              [(ngModel)]="selectedProduct.usuario"
+              name="user"
+            />
+            <p>Mensaje</p>
+            <input
+              type="text"
+              placeholder="Mensaje"
+              [(ngModel)]="selectedProduct.mensaje"
+              name="msj"
+            />
+
+            <input
+              type="button"
+              class="btn btn-info ml-2"
+              (click)="crearMSG(u)"
+              value="Enviar"
+            />
+            <input
+              type="button"
+              class="btn btn-info ml-2"
+              (click)="leerMSG()"
+              value="Refrescar"
+            />
+          </form>
+
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Fecha</th>
+                <th>Usuario</th>
+                <th>Mensaje</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let u of usuarios">
+                <td>{{ u.id }}</td>
+                <td>{{ u.fecha }}</td>
+                <td>{{ u.usuario }}</td>
+                <td>{{ u.mensaje }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
