@@ -1,0 +1,56 @@
+<form [formGroup]="miform">
+  <mat-form-field>
+    <mat-label> Código CIF </mat-label>
+    <input matInput formControlName="cif" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label> Nombre y Apellidos </mat-label>
+    <input matInput formControlName="nombre" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label> Nota 1 </mat-label>
+    <input matInput formControlName="n1" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label> Nota 2 </mat-label>
+    <input matInput formControlName="n2" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label> Nota 3 </mat-label>
+    <input matInput formControlName="n3" />
+  </mat-form-field>
+</form>
+
+<button mat-stroked-button color="primary" (click)="EnviarNotas()">
+  Enviar
+</button>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="cif">
+    <th mat-header-cell *matHeaderCellDef>Código CIF</th>
+    <td mat-cell *matCellDef="let alumno">{{ alumno.cif }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="nombre">
+    <th mat-header-cell *matHeaderCellDef>Nombre</th>
+    <td mat-cell *matCellDef="let alumno">{{ alumno.nombre }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="n1">
+    <th mat-header-cell *matHeaderCellDef>Nota 1</th>
+    <td mat-cell *matCellDef="let alumno">{{ alumno.n1 }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="n2">
+    <th mat-header-cell *matHeaderCellDef>Nota 2</th>
+    <td mat-cell *matCellDef="let alumno">{{ alumno.n2 }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="n3">
+    <th mat-header-cell *matHeaderCellDef>Nota 3</th>
+    <td mat-cell *matCellDef="let alumno">{{ alumno.n3 }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+  <tr mat-row *matRowDef="let alumno; columns: columnas"></tr>
+</table>

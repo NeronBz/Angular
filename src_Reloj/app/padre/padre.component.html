@@ -1,0 +1,16 @@
+<h4>Decimas</h4>
+{{ decimasT }}
+<h3>Segundos</h3>
+{{ segundosT }}
+<h2>Minutos</h2>
+{{ minutosT }}
+<h1>Horas</h1>
+{{ horasT }}
+<app-hijo
+  [decimasT]="0"
+  (contardecimas)="actualizarD($event)"
+  (contarsegundos)="actualizarS($event)"
+  (contarminutos)="actualizarM($event)"
+  (contarhoras)="actualizarH($event)"
+>
+</app-hijo>

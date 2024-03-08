@@ -1,0 +1,74 @@
+<!-- Cerrar Sesión Button -->
+<a
+  routerLink="/login"
+  (click)="cerrarSesion()"
+  mat-raised-button
+  color="primary"
+  >Cerrar Sesión</a
+>
+
+<!-- Usuario registrado -->
+<p>Usuario registrado: {{ nombre }}</p>
+
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input />
+</mat-form-field>
+
+<!-- Tabla de Mensajes -->
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+      <td mat-cell *matCellDef="let elemento">{{ elemento.idUsuario }}</td>
+    </ng-container>
+
+    <!-- Usuario Column -->
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>NOMBRE</th>
+      <td mat-cell *matCellDef="let elemento">{{ elemento.nombre }}</td>
+    </ng-container>
+
+    <!-- Mensaje Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>EMAIL</th>
+      <td mat-cell *matCellDef="let elemento">{{ elemento.email }}</td>
+    </ng-container>
+
+    <!-- Mensaje Column -->
+    <ng-container matColumnDef="activo">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ACTIVO</th>
+      <td mat-cell *matCellDef="let elemento">{{ elemento.activo }}</td>
+    </ng-container>
+
+    <!-- Activo Column -->
+    <ng-container matColumnDef="bloquear">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>BLOQUEAR</th>
+      <td mat-cell *matCellDef="let elemento">
+        <button class="btn btn-danger" (click)="bloquearUsuario(elemento)">
+          Bloquear
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Activo Column -->
+    <ng-container matColumnDef="activar">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ACTIVAR</th>
+      <td mat-cell *matCellDef="let elemento">
+        <button class="btn btn-success" (click)="activarUsuario(elemento)">
+          Activar
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <!-- Paginador -->
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    aria-label="Select page of users"
+  ></mat-paginator>
+</div>

@@ -1,0 +1,55 @@
+<form class="example-form">
+  <mat-label>Nombre cliente</mat-label>
+  <input
+    type="text"
+    matInput
+    [(ngModel)]="nombre"
+    [ngModelOptions]="{ standalone: true }"
+  />
+
+  <mat-label>Paradores</mat-label>
+  <mat-select
+    [(ngModel)]="paradorSeleccionado"
+    [ngModelOptions]="{ standalone: true }"
+  >
+    <mat-option *ngFor="let parador of paradoresList" [value]="parador">{{
+      parador
+    }}</mat-option>
+  </mat-select>
+
+  <!-- Zona de Fecha -->
+  <mat-form-field>
+    <mat-label>Fecha de entrada:</mat-label>
+    <input
+      matInput
+      [matDatepicker]="picker"
+      [(ngModel)]="fechaE"
+      [ngModelOptions]="{ standalone: true }"
+    />
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <!-- Zona de Fecha -->
+  <mat-form-field>
+    <mat-label>Fecha de salida:</mat-label>
+    <input
+      matInput
+      [matDatepicker]="picker2"
+      [(ngModel)]="fechaS"
+      [ngModelOptions]="{ standalone: true }"
+    />
+    <mat-datepicker-toggle
+      matIconSuffix
+      [for]="picker2"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #picker2></mat-datepicker>
+  </mat-form-field>
+
+  <div class="buttons-container">
+    <button mat-raised-button color="success" (click)="reservar()">
+      Reservar
+    </button>
+    <button type="reset" mat-raised-button color="primary">Resetear</button>
+  </div>
+</form>

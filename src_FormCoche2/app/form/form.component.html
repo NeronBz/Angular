@@ -1,0 +1,72 @@
+<div class="container">
+  <form (ngSubmit)="EnviarDatos()">
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input
+        type="text"
+        formControlName="nombre"
+        class="form-control"
+        placeholder=""
+        aria-describedby=""
+      />
+      <div *ngIf="nombre?.invalid" class="text-danger">
+        <div *ngIf="nombre?.errors?.['required']">Nombre requerido</div>
+        <div *ngIf="nombre?.errors?.['minlength']">Nombre muy corto</div>
+        <div *ngIf="nombre?.errors?.['maxlength']">Nombre muy largo</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="apellidos">Apellidos</label>
+      <input
+        type="text"
+        formControlName="apellidos"
+        class="form-control"
+        placeholder=""
+      />
+      <div *ngIf="apellidos?.invalid" class="text-danger">
+        <div *ngIf="apellidos?.errors?.['required']">Apellidos requeridos</div>
+        <div *ngIf="apellidos?.errors?.['minlength']"></div>
+        <div *ngIf="apellidos?.errors?.['maxlength']"></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="fecNac">Fecha Nacimiento</label>
+      <input
+        type="date"
+        formControlName="fecNac"
+        class="form-control"
+        placeholder=""
+      />
+      <div *ngIf="fecNac?.invalid" class="text-danger">
+        <div *ngIf="fecNac?.errors?.['required']"></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="credito">Tarjeta de crédito</label>
+      <input
+        type="text"
+        formControlName="credito"
+        class="form-control"
+        placeholder=""
+      />
+      <div *ngIf="credito?.invalid" class="text-danger">
+        <div *ngIf="credito?.errors?.['required']"></div>
+        <div *ngIf="credito?.errors?.['pattern']"></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password</label>
+      <input
+        type="password"
+        formControlName="pwd"
+        class="form-control"
+        placeholder=""
+      />
+      <div *ngIf="pwd?.invalid" class="text-danger">
+        <div *ngIf="pwd?.errors?.['required']"></div>
+        <div *ngIf="pwd?.errors?.['pattern']"></div>
+      </div>
+      <button type="submit" [disabled]="!miformulario.valid">Validar</button>
+    </div>
+  </form>
+</div>

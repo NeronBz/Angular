@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-lg-4">
+      <form action="" [formGroup]="formulario1" (ngSubmit)="EnviarDatos()">
+        <div class="form-group">
+          <div>
+            <label for="name">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="name"
+              name="name"
+              id="name"
+            />
+            <div class="invalid-feedback">Validation message</div>
+          </div>
+          <div>
+            <label for="firstName">Apellido</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="firstName"
+              name="firstName"
+              id="firstName"
+            />
+            <div class="invalid-feedback">Validation message</div>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              formControlName="mail"
+              name="mail"
+              id="mail"
+            />
+            <div class="invalid-feedback">Validation message</div>
+          </div>
+          <div>
+            <label for="password">Contraseña:</label>
+            <input
+              type="password"
+              class="form-control"
+              formControlName="password"
+              name="password"
+              id="password"
+            />
+            <div class="invalid-feedback">Validation message</div>
+          </div>
+          <br />
+          <div>
+            <button
+              type="submit"
+              class="btn btn-info"
+              [disabled]="!formulario1.valid"
+            >
+              Validar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

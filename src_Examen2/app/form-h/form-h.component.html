@@ -1,0 +1,56 @@
+<form [formGroup]="miForm" class="example-form">
+  <mat-form-field>
+    <mat-label>Nombre cliente</mat-label>
+    <input type="text" matInput formControlName="nombre" required />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Paradores</mat-label>
+    <mat-select formControlName="paradorSeleccionado" required>
+      <mat-option *ngFor="let parador of paradoresList" [value]="parador">{{
+        parador
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Zona de Fecha -->
+  <mat-form-field>
+    <mat-label>Fecha de entrada:</mat-label>
+    <input
+      matInput
+      [matDatepicker]="picker"
+      formControlName="fechaE"
+      required
+    />
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <!-- Zona de Fecha -->
+  <mat-form-field>
+    <mat-label>Fecha de salida:</mat-label>
+    <input
+      matInput
+      [matDatepicker]="picker2"
+      formControlName="fechaS"
+      required
+    />
+    <mat-datepicker-toggle
+      matIconSuffix
+      [for]="picker2"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #picker2></mat-datepicker>
+  </mat-form-field>
+
+  <div class="buttons-container">
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="miForm.invalid"
+      (click)="reservar()"
+    >
+      Reservar
+    </button>
+    <button type="reset" mat-raised-button color="warn">Resetear</button>
+  </div>
+</form>

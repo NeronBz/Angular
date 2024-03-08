@@ -1,0 +1,21 @@
+div {
+  height: 20vh;
+  width: 90%;
+  background-color: green;
+}
+.clase1 {
+  color: red;
+  background-color: cornflowerblue;
+}
+.clase2 {
+  color: blue;
+  background-color: white;
+}
+.clase3 {
+  color: green;
+  background-color: red;
+}
+.clase4 {
+  color: brown;
+  background-color: violet;
+}

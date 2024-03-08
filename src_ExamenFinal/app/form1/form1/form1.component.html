@@ -1,0 +1,76 @@
+<form class="example-form" [formGroup]="miform" (ngSubmit)="cargarEmpleados()">
+  <mat-form-field>
+    <mat-label>Empleados Id</mat-label>
+    <mat-select formControlName="id">
+      <mat-option *ngFor="let i of idOptions" [value]="i">{{ i }}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="miform.get('id')?.hasError('required')"
+      >El ID es requerido</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Empleados Nombre</mat-label>
+    <mat-select formControlName="nombre">
+      <mat-option *ngFor="let empleado of empList" [value]="empleado.nombre">{{
+        empleado.nombre
+      }}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="miform.get('nombre')?.hasError('required')"
+      >El nombre es requerido</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Empleados Dirección</mat-label>
+    <mat-select formControlName="direccion">
+      <mat-option
+        *ngFor="let empleado of empList"
+        [value]="empleado.direccion"
+        >{{ empleado.direccion }}</mat-option
+      >
+    </mat-select>
+    <mat-error *ngIf="miform.get('direccion')?.hasError('required')"
+      >La dirección es requerido</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Empleados Cargo</mat-label>
+    <mat-select formControlName="cargo">
+      <mat-option *ngFor="let empleado of empList" [value]="empleado.cargo">{{
+        empleado.cargo
+      }}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="miform.get('cargo')?.hasError('required')"
+      >El cargo es requerido</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Empleados Edad</mat-label>
+    <mat-select formControlName="edad">
+      <mat-option *ngFor="let e of edadOptions" [value]="e">{{ e }}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="miform.get('edad')?.hasError('required')"
+      >La edad es requerida</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Empleados Imagen</mat-label>
+    <mat-select formControlName="imagen">
+      <mat-option *ngFor="let empleado of empList" [value]="empleado.imagen">
+        <img [src]="empleado.imagen" alt="Imagen del empleado" />
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="miform.get('imagen')?.hasError('required')"
+      >La imagen es requerida</mat-error
+    >
+  </mat-form-field>
+
+  <div class="buttons-container">
+    <button type="submit" [hidden]="!formValido">Validar</button>
+    <button type="reset" mat-raised-button color="primary">Resetear</button>
+  </div>
+</form>
