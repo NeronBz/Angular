@@ -1,0 +1,8 @@
+<h1>Componente 4</h1>
+<input type="text" #inp />
+<button class="btn btn-md m-2" #b1 (click)="anadir(inp.value, inp)">Añadir</button>
+<table>
+  <tr *ngFor="let x of arrayR">
+    <td>{{ x }}</td>
+  </tr>
+</table>
