@@ -1,0 +1,10 @@
+<table>
+  <tr>
+    <th>id</th>
+    <th>imagen</th>
+  </tr>
+  <tr *ngFor="let x of pueblitodos">
+    <td>{{ x.id }}</td>
+    <td><img [src]=x.imagen width="80" height="100" alt="" /></td>
+  </tr>
+</table>
